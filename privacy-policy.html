@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Echo Warrior</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:        #07060f;
+      --surface:   #0e0c1e;
+      --border:    #2a2550;
+      --accent:    #9f8fff;
+      --accent2:   #4fa8ff;
+      --accent3:   #ffb347;
+      --text:      #ccc8e8;
+      --muted:     #6b6590;
+      --glow:      rgba(159,143,255,0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 15px;
+      line-height: 1.8;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated grid background ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(159,143,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(159,143,255,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
+      animation: gridDrift 60s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes gridDrift {
+      0%   { background-position: 0 0; }
+      100% { background-position: 40px 40px; }
+    }
+
+    /* ── Scan-line overlay ── */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.08) 3px,
+        rgba(0,0,0,0.08) 4px
+      );
+      pointer-events: none;
+    }
+
+    .wrapper {
+      position: relative; z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 60px 28px 100px;
+    }
+
+    /* ── Header ── */
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .logo-ring {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 24px var(--glow), inset 0 0 16px var(--glow);
+      margin-bottom: 20px;
+      animation: pulse 3s ease-in-out infinite;
+    }
+    .logo-ring svg { width: 34px; height: 34px; }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 24px var(--glow), inset 0 0 16px var(--glow); }
+      50%      { box-shadow: 0 0 44px rgba(159,143,255,0.35), inset 0 0 28px rgba(159,143,255,0.2); }
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: #fff;
+      text-shadow: 0 0 30px var(--accent);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: 0.25em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .effective-date {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 4px 14px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--accent2);
+      background: rgba(79,168,255,0.06);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      display: flex; align-items: center; gap: 12px;
+      margin: 40px 0 32px;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    .divider span {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 9px; letter-spacing: 0.3em;
+      color: var(--muted); white-space: nowrap;
+    }
+
+    /* ── Sections ── */
+    section {
+      margin-bottom: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 2px;
+      padding: 28px 32px;
+      animation: fadeUp 0.6s ease both;
+      position: relative;
+      overflow: hidden;
+    }
+    section::before {
+      content: '';
+      position: absolute; top: 0; right: 0;
+      width: 120px; height: 120px;
+      background: radial-gradient(circle at top right, rgba(159,143,255,0.05), transparent 70%);
+      pointer-events: none;
+    }
+    section:nth-child(2n) { border-left-color: var(--accent2); }
+    section:nth-child(2n)::before {
+      background: radial-gradient(circle at top right, rgba(79,168,255,0.05), transparent 70%);
+    }
+    section:nth-child(3n) { border-left-color: var(--accent3); }
+
+    section:nth-child(1) { animation-delay: 0.05s; }
+    section:nth-child(2) { animation-delay: 0.10s; }
+    section:nth-child(3) { animation-delay: 0.15s; }
+    section:nth-child(4) { animation-delay: 0.20s; }
+    section:nth-child(5) { animation-delay: 0.25s; }
+    section:nth-child(6) { animation-delay: 0.30s; }
+    section:nth-child(7) { animation-delay: 0.35s; }
+    section:nth-child(8) { animation-delay: 0.40s; }
+    section:nth-child(9) { animation-delay: 0.45s; }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: #fff;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    h2 .num {
+      font-size: 10px; color: var(--muted);
+      font-weight: 400; letter-spacing: 0.1em;
+    }
+
+    p { margin-bottom: 12px; color: var(--text); }
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      margin: 10px 0 12px;
+      padding: 0;
+    }
+    ul li {
+      padding: 5px 0 5px 20px;
+      position: relative;
+      color: var(--text);
+    }
+    ul li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 10px; top: 7px;
+    }
+
+    /* ── Tag chips ── */
+    .tag {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 2px;
+      font-size: 11px; letter-spacing: 0.12em;
+      margin: 3px 4px 3px 0;
+      border: 1px solid;
+    }
+    .tag-firebase  { color: #ffb347; border-color: rgba(255,179,71,0.4);  background: rgba(255,179,71,0.07); }
+    .tag-admob     { color: #4fa8ff; border-color: rgba(79,168,255,0.4);  background: rgba(79,168,255,0.07); }
+    .tag-google    { color: #9f8fff; border-color: rgba(159,143,255,0.4); background: rgba(159,143,255,0.07); }
+    .tag-safe      { color: #5dffa0; border-color: rgba(93,255,160,0.4);  background: rgba(93,255,160,0.07); }
+
+    a {
+      color: var(--accent2);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(79,168,255,0.3);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    a:hover { color: #fff; border-color: var(--accent2); }
+
+    /* ── Contact box ── */
+    .contact-box {
+      margin-top: 14px;
+      padding: 16px 20px;
+      background: rgba(159,143,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+    .contact-box p { margin: 0; font-size: 13px; }
+
+    /* ── Footer ── */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      animation: fadeUp 0.7s ease 0.5s both;
+    }
+    footer .brand {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--accent);
+      font-size: 12px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 520px) {
+      section { padding: 20px 18px; }
+      .wrapper { padding: 40px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="logo-ring">
+      <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="17" cy="17" r="15" stroke="#9f8fff" stroke-width="1.5"/>
+        <circle cx="17" cy="17" r="9"  stroke="#4fa8ff" stroke-width="1.5"/>
+        <circle cx="17" cy="17" r="3"  fill="#9f8fff"/>
+        <line x1="17" y1="2"  x2="17" y2="8"  stroke="#9f8fff" stroke-width="1.5"/>
+        <line x1="17" y1="26" x2="17" y2="32" stroke="#9f8fff" stroke-width="1.5"/>
+        <line x1="2"  y1="17" x2="8"  y2="17" stroke="#9f8fff" stroke-width="1.5"/>
+        <line x1="26" y1="17" x2="32" y2="17" stroke="#9f8fff" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <h1>PRIVACY POLICY</h1>
+    <p class="subtitle">Echo Warrior · Recreation Tech</p>
+    <span class="effective-date">Effective: June 1, 2025</span>
+  </header>
+
+  <div class="divider"><span>TRANSMISSION BEGINS</span></div>
+
+  <section>
+    <h2><span class="num">01 //</span> OVERVIEW</h2>
+    <p>Echo Warrior ("the Game", "we", "our") is developed by <strong>Recreation Tech</strong>. This Privacy Policy explains what information is collected when you play the Game on your Android device, how it is used, and what controls you have.</p>
+    <p>By installing or playing Echo Warrior, you agree to the practices described in this policy. If you do not agree, please uninstall the Game.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">02 //</span> INFORMATION WE COLLECT</h2>
+    <p>The Game does <strong>not</strong> require account registration and does <strong>not</strong> directly collect personally identifiable information (PII) such as your name, email address, or phone number.</p>
+    <p>The following data may be collected automatically through our third-party service providers:</p>
+    <ul>
+      <li><strong>Gameplay events</strong> — game start/over, wave completions, skills used, scores (Firebase Analytics)</li>
+      <li><strong>Device information</strong> — device model, OS version, language, screen size (Firebase Analytics)</li>
+      <li><strong>App diagnostics</strong> — crash reports and performance data (Firebase)</li>
+      <li><strong>Advertising identifiers</strong> — Android Advertising ID (AAID) used by AdMob for ad personalization</li>
+      <li><strong>IP address</strong> — used by Google services to determine approximate country/region</li>
+      <li><strong>Consent preferences</strong> — your ad consent choices as recorded by Google UMP SDK</li>
+    </ul>
+    <p>All game scores and preferences (best score, joystick settings) are stored <em>locally on your device only</em> using Android SharedPreferences and are never transmitted to our servers.</p>
+    <span class="tag tag-safe">NO ACCOUNT REQUIRED</span>
+    <span class="tag tag-safe">NO DIRECT PII COLLECTED</span>
+    <span class="tag tag-safe">SCORES STORED LOCALLY</span>
+  </section>
+
+  <section>
+    <h2><span class="num">03 //</span> THIRD-PARTY SERVICES</h2>
+    <p>Echo Warrior integrates the following Google / Firebase services. Each operates under Google's Privacy Policy.</p>
+
+    <p><span class="tag tag-firebase">FIREBASE ANALYTICS</span></p>
+    <p>Used to understand how players interact with the Game (events like game start, wave complete, skill usage). Data is aggregated and anonymized. Google may use this data consistent with their policies.</p>
+    <p>→ <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Information</a></p>
+
+    <p style="margin-top:16px"><span class="tag tag-admob">GOOGLE ADMOB</span></p>
+    <p>We display rewarded video ads via AdMob. AdMob may collect your Advertising ID and related signals to serve relevant ads. You can opt out of personalized ads in your Android device settings under <em>Privacy → Ads</em>.</p>
+    <p>→ <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Ads Privacy Policy</a></p>
+
+    <p style="margin-top:16px"><span class="tag tag-google">GOOGLE UMP (CONSENT SDK)</span></p>
+    <p>We use the Google User Messaging Platform to collect your consent for personalized advertising where required by law (e.g., GDPR in the EU/EEA, CCPA in California). Your consent choice is stored on-device and sent to Google.</p>
+    <p>→ <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></p>
+  </section>
+
+  <section>
+    <h2><span class="num">04 //</span> HOW WE USE INFORMATION</h2>
+    <p>Information collected is used solely for the following purposes:</p>
+    <ul>
+      <li>Improving gameplay balance and user experience through aggregated analytics</li>
+      <li>Diagnosing crashes and technical issues</li>
+      <li>Serving rewarded video advertisements to support free access to the Game</li>
+      <li>Complying with legal obligations regarding advertising consent</li>
+    </ul>
+    <p>We do <strong>not</strong> sell, rent, or trade your data to any third party outside of the services listed above.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">05 //</span> ADVERTISING & YOUR CHOICES</h2>
+    <p>Echo Warrior shows <strong>rewarded ads</strong> (you watch a video to earn an in-game revive). These ads are served by Google AdMob.</p>
+    <p>You have the following controls:</p>
+    <ul>
+      <li><strong>Opt out of personalized ads:</strong> Go to Android Settings → Privacy → Ads → Opt out of Ads Personalization.</li>
+      <li><strong>Reset Advertising ID:</strong> Android Settings → Privacy → Ads → Reset advertising ID.</li>
+      <li><strong>Consent form:</strong> On first launch in GDPR/CCPA regions, a consent form is shown. You may withdraw or change consent by reinstalling the app.</li>
+    </ul>
+    <p>Non-personalized ads may still be shown based on contextual signals (e.g., app category) rather than your profile.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">06 //</span> CHILDREN'S PRIVACY</h2>
+    <p>Echo Warrior is not directed at children under the age of <strong>13</strong> (or 16 in the EU/EEA). We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided information through the Game, please contact us so we can take appropriate action.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">07 //</span> DATA RETENTION & SECURITY</h2>
+    <p>We do not operate our own servers storing your personal data. Data collected by Firebase and AdMob is retained according to Google's own data retention policies.</p>
+    <p>Local data (scores, settings) remains on your device until you uninstall the Game or clear the app data.</p>
+    <p>Google employs industry-standard security measures to protect data processed through their services.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">08 //</span> YOUR RIGHTS</h2>
+    <p>Depending on your region, you may have the right to:</p>
+    <ul>
+      <li>Access the personal data collected about you</li>
+      <li>Request deletion of your data</li>
+      <li>Withdraw advertising consent at any time</li>
+      <li>Lodge a complaint with your local data protection authority</li>
+    </ul>
+    <p>For requests related to data held by Google (Firebase, AdMob), please use Google's data controls at <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">myaccount.google.com</a>.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">09 //</span> CHANGES TO THIS POLICY</h2>
+    <p>We may update this Privacy Policy from time to time. When we do, we will revise the effective date at the top of this page. Continued use of the Game after changes constitutes acceptance of the updated policy.</p>
+  </section>
+
+  <section>
+    <h2><span class="num">10 //</span> CONTACT</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+    <div class="contact-box">
+      <p><strong>Recreation Tech</strong><br/>
+      Email: <a href="mailto:privacy@recreationtech.com">privacy@recreationtech.com</a><br/>
+      App: Echo Warrior (com.recreationtech.echowarrior)</p>
+    </div>
+  </section>
+
+  <div class="divider"><span>END OF TRANSMISSION</span></div>
+
+  <footer>
+    <p class="brand">ECHO WARRIOR</p>
+    <p style="margin-top:8px">© 2025 Recreation Tech · All rights reserved</p>
+    <p style="margin-top:4px">This document was last updated June 1, 2025</p>
+  </footer>
+
+</div>
+</body>
+</html>
